@@ -4,7 +4,7 @@
 -- Your script can be executed on any database
 SELECT
   origin,
-  fans nb_fans
+  sum(fans) nb_fans
 FROM
   metal_bands
 GROUP BY

@@ -1,6 +1,7 @@
 -- a trigger that decreases the quantity of an item after adding a new order.
 DROP trigger IF exist update_item_quantity;
 
+DELIMITER $$
 CREATE TRIGGER update_item_quantity
 AFTER
 INSERT
@@ -12,4 +13,5 @@ SET
 WHERE
   items.name = NEW.item_name;
 
-END
+END $$
+DELIMITER ;

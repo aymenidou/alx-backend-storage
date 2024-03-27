@@ -3,7 +3,7 @@
 
 
 def schools_by_topic(mongo_collection, topic):
-    """
+    '''
     Returns a list of school documents that have a specific topic.
 
     Args:
@@ -12,6 +12,6 @@ def schools_by_topic(mongo_collection, topic):
 
     Returns:
         A list of school documents matching the search criteria.
-    """
+    '''
     filter = {"topics": {"$in": [topic]}}  # Use $in operator for list search
     return list(mongo_collection.find(filter))

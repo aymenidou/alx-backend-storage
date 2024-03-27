@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 def update_topics(mongo_collection, name, topics):
     """
     Updates the topics field of a school document based on the name.

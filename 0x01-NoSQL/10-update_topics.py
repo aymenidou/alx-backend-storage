@@ -13,5 +13,4 @@ def update_topics(mongo_collection, name, topics):
     '''
     filter = {"name": name}
     update = {"$set": {"topics": topics}}
-    multi = {"multi": "true"}
-    mongo_collection.update(filter, update, multi)
+    mongo_collection.update_many(filter, update)

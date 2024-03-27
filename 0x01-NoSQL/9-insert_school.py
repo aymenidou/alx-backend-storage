@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+'''0x01-NoSQL'''
+
+
 def insert_school(mongo_collection, **kwargs):
     '''
     Inserts a new document into a MongoDB collection using keyword arguments.

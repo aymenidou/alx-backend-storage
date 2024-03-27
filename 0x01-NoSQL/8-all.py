@@ -3,7 +3,7 @@
 
 
 def list_all(mongo_collection):
-    """
+    '''
     Fetches all documents from a MongoDB collection.
 
     Args:
@@ -12,6 +12,6 @@ def list_all(mongo_collection):
     Returns:
         A list of dictionaries representing the documents in the collection.
         An empty list if no documents are found.
-    """
+    '''
     documents = list(mongo_collection.find())
     return documents

@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+'''0x01-NoSQL'''
+
+
 def list_all(mongo_collection):
     """
     Fetches all documents from a MongoDB collection.

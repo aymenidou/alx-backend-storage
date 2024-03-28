@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 '''0x02-redis_basic'''
-import redis
-import uuid
-from typing import Union, Callable, Any
 import functools
+import redis
+from typing import Union, Callable, Any
+import uuid
 
 
 class Cache:

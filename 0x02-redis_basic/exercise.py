@@ -14,14 +14,6 @@ class Cache:
         self._redis = redis.Redis()
         self._redis.flushdb()  # Flush the database on initialization
 
-    @count_calls
-    def store(self, data: Union[str, bytes, int, float]) -> str:
-        """Stores data in Redis with a randomly generated key
-          and returns the key."""
-        key = str(uuid.uuid4())  # Generate a unique key
-        self._redis.set(key, data)  # Store the data in Redis
-        return key
-
     def get(self, key: str, fn: Callable = None) -> Any:
         """Retrieves data from Redis by key, optionally applying
           a conversion function."""
@@ -54,3 +46,11 @@ class Cache:
             return method(self, *args, **kwargs)
 
         return wrapper
+
+    @count_calls
+    def store(self, data: Union[str, bytes, int, float]) -> str:
+        """Stores data in Redis with a randomly generated key
+          and returns the key."""
+        key = str(uuid.uuid4())  # Generate a unique key
+        self._redis.set(key, data)  # Store the data in Redis
+        return key

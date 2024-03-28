@@ -30,24 +30,24 @@ class Cache:
         """Retrieves data as an integer."""
         return self.get(key, fn=int)
 
-    def count_calls(self, method: Callable) -> Callable:
-        """
-        Decorator that counts calls to a method and returns
-          a wrapped function.
-        """
+    # def count_calls(self, method: Callable) -> Callable:
+    #     """
+    #     Decorator that counts calls to a method and returns
+    #       a wrapped function.
+    #     """
 
-        @functools.wraps(method)
-        def wrapper(self, *args, **kwargs):
-            # Get the qualified name of the method
-            key = method.__qualname__
-            # Increment the call count for the method
-            self._redis.incr(key)
-            # Call the original method and return its result
-            return method(self, *args, **kwargs)
+    #     @functools.wraps(method)
+    #     def wrapper(self, *args, **kwargs):
+    #         # Get the qualified name of the method
+    #         key = method.__qualname__
+    #         # Increment the call count for the method
+    #         self._redis.incr(key)
+    #         # Call the original method and return its result
+    #         return method(self, *args, **kwargs)
 
-        return wrapper
+    #     return wrapper
 
-    @count_calls
+    # @count_calls
     def store(self, data: Union[str, bytes, int, float]) -> str:
         """Stores data in Redis with a randomly generated key
           and returns the key."""
